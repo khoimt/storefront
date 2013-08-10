@@ -22,6 +22,26 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             $o_View->headTitle('Storefront - ');
         }
     }
-
+    
+    public function _initAutoload()
+    {
+        $this->_autoloaderResource = new Zend_Loader_Autoloader_Resource(
+                                        array(
+                                            'namespace' => 'Storefront',
+                                            'basePath' => APPLICATION_PATH . '/modules/storefront'
+                                        ));
+        $this->_autoloaderResource->addResourceTypes(
+           array(
+               'model' => array(
+                   'path' => 'models',
+                   'namespace' => 'Model',
+               ),
+               'form' => array(
+                   'path' => 'forms',
+                   'namespace' => 'Form',
+               ),
+           )
+        );
+    }
 }
 

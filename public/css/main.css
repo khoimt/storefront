@@ -182,8 +182,9 @@ a:hover {
 	padding: 20px 30px;
 	background: #000;
 	color: #fff;
-	min-width: 950px;
-	max-width: 1800px;
+/*	min-width: 950px;
+	max-width: 1800px;*/
+        width: 100%;
 	font-size: 1.1em;
 	font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }

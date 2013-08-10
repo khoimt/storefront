@@ -8,7 +8,6 @@ class Storefront_IndexController extends Zend_Controller_Action
     
     public function indexAction()
     {
-        echo 'Hello World!';
-        
+        Storefront_Model_Foo::helloFoo();
     }
 }
