@@ -1,6 +1,7 @@
 <?php
 
 class Storefront_Resource_ProductImage extends SF_Model_Resource_Db_Table_Abstract
+    implements Storefront_Resource_ProductImage_Interface
 {
     protected $_name = 'productImage';
     protected $_primary = 'imageId';
@@ -11,4 +12,7 @@ class Storefront_Resource_ProductImage extends SF_Model_Resource_Db_Table_Abstra
             'relColumns' => 'productId',
         )
     );
+    
+    protected $_rowClass = 'Storefront_Resource_ProductImage_Item';
+    
 }
