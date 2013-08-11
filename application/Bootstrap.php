@@ -33,12 +33,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $this->_autoloaderResource->addResourceTypes(
            array(
                'model' => array(
-                   'path' => 'models',
+                   'path' => '/models',
                    'namespace' => 'Model',
                ),
                'form' => array(
-                   'path' => 'forms',
+                   'path' => '/forms',
                    'namespace' => 'Form',
+               ),
+               'resource' => array(
+                   'path' => '/models/resources',
+                   'namespace' => 'Resource',
                ),
            )
         );
