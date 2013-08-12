@@ -44,6 +44,18 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                    'path' => '/models/resources',
                    'namespace' => 'Resource',
                ),
+               'storefrontService' => array(
+                   'path' => '/services',
+                   'namespace' => 'Service',
+               ),
+               'storefrontViewHelper' => array(
+                   'path' => '/views/helpers',
+                   'namespace' => 'View_Helper',
+               ),
+               'storefrontAuthAdapter' => array(
+                   'path' => '/models/auth/adapters',
+                   'namespace' => 'Auth_Adapter',
+               ),
 //               'storefrontValidate' => array(
 //                   'path' => '/models/validate',
 //                   'namespace' => 'Validate',

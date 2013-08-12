@@ -39,8 +39,7 @@ class Storefront_Form_User_Base extends Zend_Form
             'validators' => array(
                 array('StringLength', true, array(3, 128)),
                 array('EmailAddress'),
-                array('UniqueEmail', false, array(new
-                        Storefront_Model_User())),
+//                array('UniqueEmail', false, array(new Storefront_Model_User())),
             ),
             'required' => true,
             'label' => 'Email',

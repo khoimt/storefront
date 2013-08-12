@@ -22,7 +22,30 @@
         </div>
         <div id="contentWrap" class="clearfix">
             <div class="left categorylist">
-                Category list
+                <?php if ($this->authInfo('firstname') === null): ?>
+					Chào <strong>Khách</strong>, 
+					(<a href="<?php echo $this->url(array('action' => 'login', 'controller' => 'customer')); ?>">
+						login
+					</a>)
+				<?php else: ?>
+					Chào <strong><?php echo $this->authInfo('firstname') ?></strong>, 
+					(<a href="<?php echo $this->url(array('action' => 'logout', 'controller' => 'customer'));?>">
+						logout
+					</a>)
+					<hr />
+				
+					(<a href="<?php 
+							echo $this->url(
+								array(
+									'action' => 'login-http', 
+									'controller' => 'customer', 
+									'logout' => 1,
+								)
+							);
+						?>">
+						logoutHTTP
+					</a>)
+				<?php endif ?>
             </div>
             <div class="content left">
                 <?php echo $this->layout()->content ?>

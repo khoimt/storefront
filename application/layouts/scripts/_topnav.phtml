@@ -1,16 +1,29 @@
+<?php
+$sz_Control = Zend_Controller_Front::getInstance()
+		->getRequest()
+		->getControllerName();
+?>
 <h2 class="noDisplay">Main Navigation</h2>
 <div class="main-nav">
     <ul class="clearfix">
-        <li class="current">
-            <a href="
-                <?= $this->url(array(
-                        'controller' => 'index',
-                        'action'     => 'index',
-                        ), 
-                        'default', true
-                    ); 
-                 ?>" 
+        <li class="<?php if ($sz_Control == 'index') echo 'current' ?>">
+            <a href="<?php echo $this->url(array(
+				'controller' => 'index',
+				'action' => 'index',
+					), 'default', true
+			);
+			?>" 
                title="Homepage">Store</a>
+        </li>
+
+        <li class="<?php if ($sz_Control == 'customer') echo 'current' ?>">
+            <a href="<?php echo $this->url(array(
+				   'controller' => 'customer',
+				   'action' => 'index',
+					   ), 'default', true
+			   );
+			?>" 
+               title="Homepage">customer</a>
         </li>
     </ul>
 </div>
