@@ -22,7 +22,7 @@
         </div>
         <div id="contentWrap" class="clearfix">
             <div class="left categorylist">
-                <?php if ($this->authInfo('firstname') === null): ?>
+                <?php if (!$this->authInfo()->isLoggedIn()): ?>
 					Chào <strong>Khách</strong>, 
 					(<a href="<?php echo $this->url(array('action' => 'login', 'controller' => 'customer')); ?>">
 						login
@@ -30,7 +30,7 @@
 				<?php else: ?>
 					Chào <strong><?php echo $this->authInfo('firstname') ?></strong>, 
 					(<a href="<?php echo $this->url(array('action' => 'logout', 'controller' => 'customer'));?>">
-						logout
+                        logout
 					</a>)
 					<hr />
 				
