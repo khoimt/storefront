@@ -1,6 +1,39 @@
 <?php
 
-class Storefront_Model_User extends SF_Model_Abstract {
+class Storefront_Model_User extends SF_Model_Acl_Abstract {
+
+    /**
+     *
+     * @return string
+     */
+    public function getResourceId()
+    {
+        return 'User';
+    }
+
+    /**
+     *
+     * @param Zend_Acl $acl
+     */
+    public function setAcl($acl)
+    {
+        if(!$acl->has($this->getResourceId())) {
+            $acl->add($this);
+            $acl->allow('Guest', $this, array('register'))
+                ->allow('Customer', $this, array('saveUser'))
+                ->allow('Admin', $this);
+            $this->_acl = $acl;
+        }
+        return $this;
+    }
+
+    /**
+     * @return Zend_Acl
+     */
+    public function getAcl()
+    {
+
+    }
 
     public function getUserById($id) {
         $id = (int) $id;
@@ -62,5 +95,7 @@ class Storefront_Model_User extends SF_Model_Abstract {
         }
         return $salt;
     }
+
+   
 
 }
