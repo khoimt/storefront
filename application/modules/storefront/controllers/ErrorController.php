@@ -6,6 +6,9 @@ class Storefront_ErrorController extends Zend_Controller_Action
     {
         $o_Err = $this->_getParam('error_handler')->exception;
         $this->view->message = $o_Err->getMessage();
-        $this->view->traceAsTring = $o_Err->getTraceAsString();
+        $this->view->traceAsTring = '';
+        if (APPLICATION_ENV == 'development') {
+            $this->view->traceAsTring = $o_Err->getTraceAsString();
+        }
     }
 }
