@@ -40,10 +40,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                    'path' => '/forms',
                    'namespace' => 'Form',
                ),
-               'resource' => array(
+               'storefrontResource' => array(
                    'path' => '/models/resources',
                    'namespace' => 'Resource',
                ),
+//               'storefrontValidate' => array(
+//                   'path' => '/models/validate',
+//                   'namespace' => 'Validate',
+//               ),
            )
         );
     }
