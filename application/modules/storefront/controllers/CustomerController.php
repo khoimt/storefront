@@ -21,7 +21,7 @@ class Storefront_CustomerController extends Zend_Controller_Action
         // get the default model
         $this->_model = new Storefront_Model_User();
 		
-		$this->_authService = new Storefront_Service_Authentication(
+                $this->_authService = Storefront_Service_Authentication::Instance(
 					$this->_model
 				);
 		$this->_authServiceHttp = new Storefront_Service_HttpAuthentication(

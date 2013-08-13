@@ -16,7 +16,7 @@ class Storefront_View_Helper_AuthInfo extends Zend_View_Helper_Abstract
     public function authInfo ($info = null)
     {
         if (null === $this->_authService) {
-            $this->_authService = new Storefront_Service_Authentication();
+            $this->_authService = Storefront_Service_Authentication::getInstance();
         }
          
         if (null === $info) {

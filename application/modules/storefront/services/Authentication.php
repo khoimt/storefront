@@ -18,15 +18,25 @@ class Storefront_Service_Authentication
 	 */
 	protected $_auth;
 
+    protected static $_instance;
+
 	/**
 	 * Construct 
 	 * 
 	 * @param null|Storefront_Model_User $userModel 
 	 */
-	public function __construct(Storefront_Model_User $userModel = null)
+    protected function __construct(Storefront_Model_User $userModel = null)
 	{
 		$this->_userModel = null === $userModel ? new Storefront_Model_User() : $userModel;
 	}
+
+    public static function getInstance(Storefront_Model_User $userModel = null)
+    {
+        if (null === self::$_instance) {
+            self::$_instance = new self($userModel);
+        }
+        return self::$_instance;
+    }
 
 	/**
 	 * Authenticate a user
@@ -61,6 +71,10 @@ class Storefront_Service_Authentication
 		return $this->_auth;
 	}
 
+    /**
+     *
+     * @return mixed|null|false
+     */
 	public function getIdentity()
 	{
 		$auth = $this->getAuth();

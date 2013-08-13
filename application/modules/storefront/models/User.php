@@ -32,7 +32,10 @@ class Storefront_Model_User extends SF_Model_Acl_Abstract {
      */
     public function getAcl()
     {
-
+        if ($this->_acl === null) {
+            $this->setAcl(new Storefront_Model_Acl_Storefront);
+        }
+        return $this->_acl;
     }
 
     public function getUserById($id) {

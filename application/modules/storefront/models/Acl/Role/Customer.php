@@ -1,6 +1,6 @@
 <?php
 
-class Storefront_Model_Acl_Role_Guest extends Zend_Acl_Role
+class Storefront_Model_Acl_Role_Customer extends Zend_Acl_Role
 {
     public function getRoleId()
     {
