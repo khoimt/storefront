@@ -13,9 +13,9 @@ class Storefront_Model_User extends SF_Model_Acl_Abstract {
 
     /**
      *
-     * @param Zend_Acl $acl
+     * @param Storefront_Model_Acl_Storefront $acl
      */
-    public function setAcl($acl)
+    public function setAcl(SF_Acl_Interface $acl)
     {
         if(!$acl->has($this->getResourceId())) {
             $acl->add($this);
