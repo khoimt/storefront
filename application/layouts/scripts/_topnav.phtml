@@ -16,14 +16,35 @@ $sz_Control = Zend_Controller_Front::getInstance()
                title="Homepage">Store</a>
         </li>
 
-        <li class="<?php if ($sz_Control == 'customer') echo 'current' ?>">
-            <a href="<?php echo $this->url(array(
-				   'controller' => 'customer',
-				   'action' => 'index',
-					   ), 'default', true
-			   );
-			?>" 
-               title="Homepage">customer</a>
-        </li>
+        <?php if ($this->authInfo()->isLoggedIn()): ?>
+            <li class="<?php if ($sz_Control == 'customer') echo 'current' ?>">
+                <a href="<?php echo $this->url(array(
+                       'controller' => 'customer',
+                       'action' => 'index',
+                           ), 'default', true
+                   );
+                ?>"
+                   title="Profile">Profile</a>
+            </li>
+            <li class="">
+                <a href="<?php echo $this->url(array(
+                       'controller' => 'customer',
+                       'action' => 'logout',
+                           ), 'default', true
+                   );
+                ?>"
+                   title="Logout">Logout</a>
+            </li>
+        <?php else: ?>
+            <li class="">
+                <a href="<?php echo $this->url(array(
+                       'controller' => 'customer',
+                       'action' => 'login',
+                           ), 'default', true
+                   );
+                ?>"
+                   title="Login">Login</a>
+            </li>
+        <?php endif ?>
     </ul>
 </div>

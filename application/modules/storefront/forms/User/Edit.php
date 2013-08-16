@@ -1,6 +1,6 @@
 <?php
 
-class Storefront_Form_User_Edit extends Storefront_Form_User_Register
+class Storefront_Form_User_Edit extends Storefront_Form_User_Base
 {
 	public function init()
 	{
