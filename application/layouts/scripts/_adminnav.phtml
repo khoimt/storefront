@@ -12,5 +12,14 @@
             </a>
         </li>
         <li><a href="/" title="Homepage">Store</a></li>
+        <li class="">
+            <a href="<?php echo $this->url(array(
+                   'controller' => 'customer',
+                   'action' => 'logout',
+                       ), 'default', true
+               );
+            ?>"
+               title="Logout">Logout</a>
+        </li>
     </ul>
 </div>

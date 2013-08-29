@@ -14,7 +14,7 @@
         <div id="headwrap" class="clearfix">
             <div class="right">
                 <?php echo $this->render('_topnav.phtml') ?>
-            </div> 
+            </div>
             <div id="logo" class="left">
                 <img src="/images/layout/logo.png" alt=
                      "Shop till you drop..." />
@@ -23,22 +23,22 @@
         <div id="contentWrap" class="clearfix">
             <div class="left categorylist">
                 <?php if (!$this->authInfo()->isLoggedIn()): ?>
-					Chào <strong>Khách</strong>, 
+					Chào <strong>Khách</strong>,
 					(<a href="<?php echo $this->url(array('action' => 'login', 'controller' => 'customer')); ?>">
 						login
 					</a>)
 				<?php else: ?>
-					Chào <strong><?php echo $this->authInfo('firstname') ?></strong>, 
+					Chào <strong><?php echo $this->authInfo('firstname') ?></strong>,
 					(<a href="<?php echo $this->url(array('action' => 'logout', 'controller' => 'customer'));?>">
                         logout
 					</a>)
 					<hr />
-				
-					(<a href="<?php 
+
+					(<a href="<?php
 							echo $this->url(
 								array(
-									'action' => 'login-http', 
-									'controller' => 'customer', 
+									'action' => 'login-http',
+									'controller' => 'customer',
 									'logout' => 1,
 								)
 							);
